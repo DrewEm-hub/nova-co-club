@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nova Co Club — Content that turns followers into paying clients</title>
+<meta name="description" content="Nova Co Club — the strategy and content partner for female coaches scaling to six figures." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Dancing+Script:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+/* ===== Nova Co Club — Brand System ===== */
+:root {
+  --cream:        #F5F0E8;
+  --cream-deep:   #EFE7DA;
+  --sand:         #D4C5A9;
+  --sand-soft:    #E2D6C0;
+  --pink:         #C9A0A0;
+  --pink-soft:    #E4CBCB;
+  --burgundy:     #6B2737;
+  --burgundy-deep:#551C2B;
+  --ink:          #1A1A1A;
+  --body:         #4A413C;
+  --body-soft:    #6F655E;
+  --serif:  'Playfair Display', Georgia, serif;
+  --script: 'Dancing Script', cursive;
+  --sans:   'DM Sans', system-ui, sans-serif;
+  --maxw: 1180px;
+  --gutter: clamp(22px, 5vw, 72px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--body);
+  background: var(--cream);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+section { position: relative; z-index: 2; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.script {
+  font-family: var(--script);
+  font-weight: 600;
+  line-height: 1.05;
+}
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  padding: 15px 28px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .35s ease, color .35s ease, transform .35s ease, box-shadow .35s ease;
+  white-space: nowrap;
+}
+.btn .arr { transition: transform .35s ease; }
+.btn:hover .arr { transform: translateX(4px); }
+.btn-burgundy { background: var(--burgundy); color: var(--cream); }
+.btn-burgundy:hover { background: var(--burgundy-deep); transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(107,39,55,0.6); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--cream); }
+.btn-cream { background: var(--cream); color: var(--burgundy); }
+.btn-cream:hover { background: #fff; transform: translateY(-2px); }
+.btn-block { width: 100%; justify-content: center; }
+
+/* ===== Nav ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px var(--gutter);
+  background: rgba(245,240,232,0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .4s ease, background .4s ease, padding .4s ease;
+}
+.nav.scrolled { border-bottom-color: rgba(107,39,55,0.14); padding-top: 13px; padding-bottom: 13px; }
+.brand { display: inline-flex; align-items: baseline; gap: 11px; white-space: nowrap; }
+.brand .mark { font-family: var(--serif); font-weight: 700; font-size: 23px; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+.brand .sub { font-family: var(--script); font-size: 20px; color: var(--burgundy); white-space: nowrap; }
+
+/* ===== Hero ===== */
+.hero { padding: clamp(56px, 9vh, 104px) 0 clamp(64px, 10vh, 116px); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(36px, 6vw, 88px);
+  align-items: center;
+}
+.hero-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.hero .eyebrow { color: var(--burgundy); margin-bottom: 26px; }
+.hero h1 {
+  font-size: clamp(38px, 5.2vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 26px;
+}
+.hero h1 .ink-accent { font-style: italic; }
+.hero .sub-script {
+  font-family: var(--script);
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.45;
+  color: var(--burgundy);
+  margin: 0 0 30px;
+}
+.hero .descriptor { font-size: 19px; max-width: 30em; color: var(--body); margin-bottom: 38px; }
+.hero .descriptor strong { color: var(--ink); font-weight: 600; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+.hero-art { position: relative; }
+.photo-frame { position: relative; overflow: hidden; border-radius: 16px; }
+.photo-frame img { width: 100%; height: 114%; object-fit: cover; display: block; will-change: transform; }
+.hero-art .photo-frame { aspect-ratio: 4/5; box-shadow: 0 40px 80px -50px rgba(26,26,26,0.55); }
+.hero-art .badge {
+  position: absolute; left: -26px; bottom: 34px;
+  background: var(--cream);
+  border: 1px solid rgba(107,39,55,0.18);
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-family: var(--script); font-size: 24px; color: var(--burgundy);
+  box-shadow: 0 20px 45px -22px rgba(26,26,26,0.4);
+}
+.hero-art .stamp { position: absolute; top: -22px; right: -18px; width: 116px; height: 116px; }
+
+/* ===== Marquee ===== */
+.marquee {
+  background: var(--sand);
+  border-block: 1px solid rgba(107,39,55,0.12);
+  overflow: hidden;
+  padding: 20px 0;
+}
+.marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(20px, 2.4vw, 30px);
+  color: var(--burgundy);
+  padding: 0 28px;
+  display: inline-flex; align-items: center; gap: 28px;
+}
+.marquee-track span::after { content: "✦"; font-size: 0.6em; color: var(--ink); font-style: normal; opacity: .5; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ===== Problem ===== */
+.problem { background: var(--burgundy); color: var(--cream); padding: clamp(80px, 12vh, 150px) 0; overflow: hidden; }
+.problem-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(40px, 6vw, 84px); align-items: center; }
+.problem-photo .photo-frame { aspect-ratio: 3/4; box-shadow: 0 40px 90px -50px rgba(0,0,0,0.6); }
+.problem .eyebrow { color: var(--pink); margin-bottom: 28px; }
+.problem h2 { color: var(--cream); font-size: clamp(34px, 5vw, 62px); max-width: 16ch; line-height: 1.07; margin-bottom: 56px; }
+.problem h2 em { font-style: italic; color: var(--pink); }
+.problem-statements { display: grid; grid-template-columns: 1fr; gap: clamp(20px, 2.5vw, 30px); }
+.problem-statements .stmt { border-top: 1px solid rgba(245,240,232,0.28); padding-top: 22px; }
+.problem-statements .stmt .n { font-family: var(--script); font-size: 30px; color: var(--pink); display: block; margin-bottom: 10px; }
+.problem-statements .stmt p { font-family: var(--script); font-size: clamp(23px, 2.5vw, 30px); color: var(--cream); line-height: 1.25; margin: 0; }
+
+/* ===== Editorial band ===== */
+.editorial-band { position: relative; height: clamp(420px, 64vh, 640px); overflow: hidden; background: var(--ink); }
+.editorial-band .eb-photo { position: absolute; inset: -8% 0; }
+.editorial-band .eb-photo img { width: 100%; height: 116%; object-fit: cover; object-position: 50% 42%; display: block; }
+.editorial-band .eb-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 24px;
+  background: linear-gradient(180deg, rgba(26,26,26,0.18), rgba(107,39,55,0.34));
+}
+.editorial-band .eb-script { font-size: clamp(36px, 6vw, 76px); color: var(--cream); margin: 0; line-height: 1.05; text-shadow: 0 4px 30px rgba(0,0,0,0.35); }
+.editorial-band .eb-tag { margin-top: 22px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cream); opacity: 0.85; }
+
+/* ===== Section header ===== */
+.sec-head { max-width: 720px; margin-bottom: clamp(48px, 7vh, 80px); }
+.sec-head .eyebrow { color: var(--burgundy); margin-bottom: 22px; display: block; }
+.sec-head h2 { font-size: clamp(34px, 5vw, 60px); line-height: 1.26; margin-bottom: 26px; }
+.sec-head h2 .script { font-size: 1.12em; color: var(--burgundy); }
+.sec-head p { font-size: 19px; max-width: 46ch; }
+
+/* ===== Membership cards ===== */
+.membership { padding: clamp(80px, 12vh, 150px) 0; background: var(--cream); }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2vw, 26px); }
+.svc-card {
+  background: var(--cream-deep);
+  border: 1px solid rgba(107,39,55,0.10);
+  border-radius: 10px;
+  padding: 38px 34px 42px;
+  transition: transform .5s cubic-bezier(.2,.7,.3,1), box-shadow .5s ease, background .5s ease;
+}
+.svc-card:hover { transform: translateY(-6px); box-shadow: 0 26px 50px -30px rgba(26,26,26,0.45); background: #fff; }
+.svc-card .num {
+  font-family: var(--serif); font-style: italic; font-size: 22px;
+  color: var(--burgundy);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 30px;
+}
+.svc-card .num::after { content: ""; flex: 1; height: 1px; background: rgba(107,39,55,0.2); }
+.svc-card h3 { font-size: 27px; line-height: 1.16; margin-bottom: 14px; }
+.svc-card p { font-size: 16.5px; color: var(--body); margin: 0; }
+
+/* ===== How It Works ===== */
+.how { background: var(--sand); padding: clamp(80px, 12vh, 150px) 0; }
+.how .sec-head h2 .script { color: var(--burgundy); }
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 2.5vw, 40px); counter-reset: ph; }
+.phase { position: relative; padding-top: 34px; }
+.phase::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(107,39,55,0.25); }
+.phase .dot { position: absolute; top: -7px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--burgundy); }
+.phase .pnum { font-family: var(--serif); font-size: clamp(40px, 5vw, 62px); color: var(--burgundy); line-height: 1; display: block; margin-bottom: 16px; }
+.phase h3 { font-size: 24px; line-height: 1.16; margin-bottom: 10px; }
+.phase p { font-size: 16px; color: var(--body); margin: 0; }
+
+/* ===== Beliefs ===== */
+.belief { padding: clamp(70px, 12vh, 140px) 0; }
+.belief:nth-child(odd) { background: var(--cream); }
+.belief:nth-child(even) { background: var(--pink-soft); }
+.belief .inner { max-width: 920px; margin-inline: auto; text-align: center; }
+.belief .qmark { font-family: var(--serif); font-size: 90px; line-height: 0.5; color: var(--burgundy); opacity: .35; display: block; height: 40px; }
+.belief blockquote { margin: 0; font-family: var(--serif); font-size: clamp(30px, 4.6vw, 56px); line-height: 1.32; letter-spacing: -0.015em; color: var(--ink); }
+.belief blockquote .script { color: var(--burgundy); font-size: 1.08em; }
+.belief blockquote em { font-style: italic; }
+.belief .by { margin-top: 38px; font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--burgundy); }
+
+/* ===== Pricing ===== */
+.pricing { background: var(--cream); padding: clamp(80px, 12vh, 150px) 0; }
+.country-bar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: clamp(40px, 6vh, 64px);
+  padding: 22px 26px;
+  background: var(--cream-deep);
+  border: 1px solid rgba(107,39,55,0.12);
+  border-radius: 10px;
+}
+.country-bar label { font-size: 15px; color: var(--body); font-weight: 500; }
+.select-wrap { position: relative; }
+.select-wrap::after { content: "▾"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--burgundy); font-size: 13px; }
+.country-bar select {
+  appearance: none; -webkit-appearance: none;
+  font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink);
+  background: var(--cream); border: 1px solid rgba(107,39,55,0.25);
+  border-radius: 6px; padding: 12px 44px 12px 18px; cursor: pointer;
+  transition: border-color .3s ease;
+}
+.country-bar select:hover { border-color: var(--burgundy); }
+.country-bar .hint { font-size: 14px; color: var(--body-soft); margin-left: auto; }
+
+.price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 32px); }
+.price-card {
+  border-radius: 14px; padding: clamp(34px, 4vw, 52px);
+  display: flex; flex-direction: column;
+  border: 1px solid rgba(107,39,55,0.12);
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+.price-card.t-cream { background: var(--cream-deep); }
+.price-card.t-burgundy { background: var(--burgundy); color: var(--cream); border-color: transparent; }
+.price-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -34px rgba(26,26,26,0.5); }
+.price-card .ribbon { align-self: flex-start; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--pink); color: var(--ink); padding: 6px 14px; border-radius: 999px; margin-bottom: 22px; font-weight: 600; }
+.price-card .tier-name { font-family: var(--serif); font-size: clamp(28px, 3vw, 36px); margin-bottom: 8px; }
+.price-card.t-cream .tier-name { color: var(--ink); }
+.price-card.t-burgundy .tier-name { color: var(--cream); }
+.price-card .tier-tag { font-family: var(--script); font-size: 24px; color: var(--burgundy); margin-bottom: 26px; }
+.price-card.t-burgundy .tier-tag { color: var(--pink); }
+.price-card .price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.price-card .price .amount { font-family: var(--serif); font-size: clamp(40px, 5vw, 56px); font-weight: 700; line-height: 1; }
+.price-card.t-cream .price .amount { color: var(--ink); }
+.price-card .price .per { font-size: 16px; opacity: .7; }
+.price-card .price-note { font-size: 14px; opacity: .7; margin-bottom: 30px; }
+.price-card hr { border: none; border-top: 1px solid currentColor; opacity: .16; margin: 0 0 26px; }
+.price-card ul { list-style: none; margin: 0 0 34px; padding: 0; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.price-card li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.45; }
+.price-card li .tick { color: var(--burgundy); flex-shrink: 0; margin-top: 2px; }
+.price-card.t-burgundy li .tick { color: var(--pink); }
+
+/* ===== Application ===== */
+.apply { background: var(--burgundy); color: var(--cream); padding: clamp(80px, 12vh, 150px) 0; position: relative; overflow: hidden; }
+.apply-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 90px); align-items: start; }
+.apply .eyebrow { color: var(--pink); margin-bottom: 26px; display: block; }
+.apply h2 { color: var(--cream); font-size: clamp(34px, 5vw, 58px); line-height: 1.22; margin-bottom: 30px; }
+.apply h2 .script { color: var(--pink); }
+.apply .lead { font-size: 19px; color: rgba(245,240,232,0.85); max-width: 36ch; }
+.apply .quarterly { margin-top: 32px; font-family: var(--script); font-size: 28px; color: var(--pink); }
+.apply-photo { margin-top: 38px; max-width: 360px; }
+.apply-photo .photo-frame { aspect-ratio: 4/5; box-shadow: 0 40px 80px -50px rgba(0,0,0,0.6); }
+
+.form-card { background: var(--cream); color: var(--ink); border-radius: 14px; padding: clamp(30px, 4vw, 48px); }
+.field { margin-bottom: 22px; }
+.field label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em; }
+.field input, .field textarea {
+  width: 100%; font-family: var(--sans); font-size: 16px; color: var(--ink);
+  background: var(--cream-deep); border: 1px solid rgba(107,39,55,0.18);
+  border-radius: 7px; padding: 13px 16px; transition: border-color .25s ease, background .25s ease;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--burgundy); background: #fff; }
+.field textarea { resize: vertical; min-height: 92px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-msg { font-size: 15px; margin-top: 14px; min-height: 1.4em; }
+.form-msg.ok { color: var(--burgundy); font-weight: 600; }
+
+/* ===== Footer ===== */
+.footer { background: var(--ink); color: var(--cream); padding: clamp(64px, 9vh, 104px) 0 40px; text-align: center; }
+.footer .f-mark { font-family: var(--serif); font-size: 32px; font-weight: 700; letter-spacing: 0.02em; }
+.footer .f-mark .script { font-family: var(--script); color: var(--pink); font-weight: 600; }
+.footer .f-tag { font-family: var(--script); font-size: 27px; color: var(--pink); margin-top: 10px; }
+.footer .f-links { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 34px; font-size: 15px; letter-spacing: 0.04em; }
+.footer .f-links a { color: rgba(245,240,232,0.8); transition: color .25s ease; }
+.footer .f-links a:hover { color: var(--pink); }
+.footer .f-meta { margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(245,240,232,0.16); font-size: 13px; color: rgba(245,240,232,0.55); letter-spacing: 0.06em; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+/* ===== Scroll reveal ===== */
+.reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.2,.7,.3,1), transform .9s cubic-bezier(.2,.7,.3,1); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
+.reveal.d5 { transition-delay: .40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  html { scroll-behavior: auto; }
+}
+html.reveal-failsafe .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-art { order: -1; max-width: 460px; }
+  .problem-grid { grid-template-columns: 1fr; gap: 36px; }
+  .problem-photo { max-width: 380px; }
+  .problem-statements { grid-template-columns: 1fr; gap: 30px; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .phases { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .price-grid { grid-template-columns: 1fr; }
+  .apply-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .phases { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .country-bar .hint { margin-left: 0; width: 100%; }
+  .hero-art .badge { left: 0; }
+}
+</style>
+</head>
+<body class="nova">
+
+<!-- ============ NAV ============ -->
+<nav class="nav" data-screen-label="Navigation">
+  <a class="brand" href="#top" aria-label="Nova Co Club home">
+    <span class="mark">Nova Co</span>
+    <span class="sub">club</span>
+  </a>
+  <a class="btn btn-burgundy" href="#apply">Apply</a>
+</nav>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal" data-hero>Strategy &amp; content membership</span>
+      <h1 class="reveal" data-hero>Content that turns followers into <span class="ink-accent">paying clients.</span></h1>
+      <p class="sub-script reveal" data-hero>Less posting. More booking.</p>
+      <p class="descriptor reveal" data-hero><strong>Nova Co Club</strong> — the strategy and content partner for female coaches scaling to six figures.</p>
+      <div class="hero-cta reveal" data-hero>
+        <a class="btn btn-burgundy" href="#apply">Apply for membership <span class="arr">→</span></a>
+        <a class="btn btn-outline" href="#membership">See what's inside</a>
+      </div>
+    </div>
+    <div class="hero-art reveal" data-hero>
+      <div class="photo-frame">
+        <img src="images/hero.jpg" alt="A coach working at her laptop with a coffee" data-parallax="0.04" />
+      </div>
+      <span class="badge">female-founded ✦ Cape Town</span>
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs>
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#6B2737" stroke-width="1" opacity="0.55"/>
+        <text fill="#6B2737" font-family="'DM Sans',sans-serif" font-size="9.5" letter-spacing="3" font-weight="500">
+          <textPath href="#circlePath" startOffset="0">NOVA CO CLUB · STRATEGY + CONTENT · NOVA CO CLUB · </textPath>
+        </text>
+        <text x="60" y="66" text-anchor="middle" font-family="'Dancing Script',cursive" font-size="26" fill="#6B2737">est.</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Content Strategy</span><span>Caption Writing</span><span>Reels &amp; Carousels</span><span>Story Sales Systems</span><span>DM Conversion</span><span>Monthly Strategy</span>
+    <span>Content Strategy</span><span>Caption Writing</span><span>Reels &amp; Carousels</span><span>Story Sales Systems</span><span>DM Conversion</span><span>Monthly Strategy</span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem" data-screen-label="The Quiet DMs">
+  <div class="wrap problem-grid">
+    <div class="problem-photo reveal">
+      <div class="photo-frame">
+        <img src="images/problem.jpg" alt="Magazine cover reading: You need a social media manager" data-parallax="0.05" />
+      </div>
+    </div>
+    <div class="problem-copy">
+      <span class="eyebrow reveal">The quiet DMs</span>
+      <h2 class="reveal d1">Your content gets saves. Your calendar stays <em>empty.</em></h2>
+      <div class="problem-statements">
+        <div class="stmt reveal d1"><span class="n">01</span><p>You're posting. You're showing up. But DMs stay quiet.</p></div>
+        <div class="stmt reveal d2"><span class="n">02</span><p>Followers aren't clients. Engagement isn't income.</p></div>
+        <div class="stmt reveal d3"><span class="n">03</span><p>You don't need more content. You need content that converts.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP ============ -->
+<section class="membership" id="membership" data-screen-label="Membership">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Inside the membership</span>
+      <h2 class="reveal d1">Everything your content needs to <span class="script">sell.</span></h2>
+      <p class="reveal d2">A complete content engine — strategy, words, and sales systems — built around the way your audience actually buys.</p>
+    </div>
+    <div class="card-grid">
+      <article class="svc-card reveal d1"><span class="num">01</span><h3>Content Strategy</h3><p>A clear monthly content plan mapped to your offers, your launches, and the way your people buy.</p></article>
+      <article class="svc-card reveal d2"><span class="num">02</span><h3>Captions &amp; Carousels</h3><p>Scroll-stopping hooks and carousels that build authority and move quietly toward the sale.</p></article>
+      <article class="svc-card reveal d3"><span class="num">03</span><h3>Reels &amp; Short-Form</h3><p>Reel concepts, scripts and shot lists that grow reach without turning you into a full-time creator.</p></article>
+      <article class="svc-card reveal d1"><span class="num">04</span><h3>Story Sales Systems</h3><p>Repeatable story frameworks that warm your audience daily and make selling feel natural.</p></article>
+      <article class="svc-card reveal d2"><span class="num">05</span><h3>DM Conversation Playbook</h3><p>Word-for-word DM flows that turn a reply or a save into a discovery call — without the ick.</p></article>
+      <article class="svc-card reveal d3"><span class="num">06</span><h3>Monthly Strategy Sessions</h3><p>A live session each month to review the numbers, refine the plan, and decide the next move together.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" data-screen-label="How It Works">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">How it works</span>
+      <h2 class="reveal d1">Four phases. <span class="script">One outcome.</span></h2>
+      <p class="reveal d2">A calm, deliberate process that turns scattered posting into a content system that books clients.</p>
+    </div>
+    <div class="phases">
+      <div class="phase reveal d1"><span class="dot"></span><span class="pnum">01</span><h3>The Audit</h3><p>We dig into your content, offers and numbers to find exactly where the booking breaks down.</p></div>
+      <div class="phase reveal d2"><span class="dot"></span><span class="pnum">02</span><h3>The Strategy</h3><p>A bespoke content and sales plan built around your voice, your offers and your goals.</p></div>
+      <div class="phase reveal d3"><span class="dot"></span><span class="pnum">03</span><h3>The Execution</h3><p>We create — captions, carousels, reels and story systems — so you can simply show up.</p></div>
+      <div class="phase reveal d4"><span class="dot"></span><span class="pnum">04</span><h3>The Refinement</h3><p>Each month we read the data, sharpen what's working and quietly cut what isn't.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDITORIAL BAND ============ -->
+<section class="editorial-band" data-screen-label="Editorial" aria-hidden="true">
+  <div class="eb-photo"><img src="images/editorial.jpg" alt="" data-parallax="0.14" /></div>
+  <div class="eb-overlay">
+    <p class="eb-script script reveal">Premium content,<br />quietly handled.</p>
+    <span class="eb-tag reveal d1">Nova Co Club — Est. Cape Town</span>
+  </div>
+</section>
+
+<!-- ============ BELIEFS ============ -->
+<div class="beliefs" data-screen-label="Beliefs">
+  <section class="belief">
+    <div class="wrap inner reveal">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>Content should be the <span class="script">most profitable</span> part of your business.</blockquote>
+      <div class="by">What we believe — 01</div>
+    </div>
+  </section>
+  <section class="belief">
+    <div class="wrap inner reveal">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>Strategy beats output. <em>Always.</em></blockquote>
+      <div class="by">What we believe — 02</div>
+    </div>
+  </section>
+  <section class="belief">
+    <div class="wrap inner reveal">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>Premium positioning isn't aesthetic. It's <span class="script">clarity.</span></blockquote>
+      <div class="by">What we believe — 03</div>
+    </div>
+  </section>
+  <section class="belief">
+    <div class="wrap inner reveal">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>The best content sounds like a <em>real person.</em> Not a brand.</blockquote>
+      <div class="by">What we believe — 04</div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing" data-screen-label="Investment">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Investment</span>
+      <h2 class="reveal d1">Choose your <span class="script">plan.</span></h2>
+      <p class="reveal d2">Two ways to work with Nova Co Club. Both are built to make content the most profitable part of your business.</p>
+    </div>
+    <div class="country-bar reveal">
+      <label for="country-select">Select your country to view pricing in your currency:</label>
+      <div class="select-wrap">
+        <select id="country-select" aria-label="Select your country">
+          <option value="ZA">🇿🇦 South Africa (ZAR)</option>
+          <option value="GB">🇬🇧 United Kingdom (GBP)</option>
+          <option value="US" selected>🇺🇸 United States (USD)</option>
+          <option value="AU">🇦🇺 Australia (AUD)</option>
+          <option value="CA">🇨🇦 Canada (CAD)</option>
+        </select>
+      </div>
+      <span class="hint">Indicative pricing · final quote confirmed on your call</span>
+    </div>
+    <div class="price-grid">
+      <article class="price-card t-cream reveal d1">
+        <span class="tier-name">The Membership</span>
+        <span class="tier-tag">your monthly content engine</span>
+        <div class="price" data-price="membership"><span class="amount"><span class="sym">$</span><span class="num">1,200</span></span><span class="per">/ month</span></div>
+        <p class="price-note"><span data-cur>USD</span> · rolling monthly · cancel anytime</p>
+        <hr />
+        <ul>
+          <li><span class="tick">✦</span> Monthly content strategy mapped to your offers</li>
+          <li><span class="tick">✦</span> Captions &amp; carousels written for you</li>
+          <li><span class="tick">✦</span> Reel concepts, scripts &amp; shot lists</li>
+          <li><span class="tick">✦</span> Story sales system &amp; DM playbook</li>
+          <li><span class="tick">✦</span> One live strategy session each month</li>
+        </ul>
+        <a class="btn btn-burgundy btn-block" href="#apply">Book a call to discuss <span class="arr">→</span></a>
+      </article>
+      <article class="price-card t-burgundy reveal d2">
+        <span class="ribbon">Most chosen</span>
+        <span class="tier-name">The Private Studio</span>
+        <span class="tier-tag">done-with-you, fully bespoke</span>
+        <div class="price" data-price="studio"><span class="amount"><span class="sym">$</span><span class="num">2,850</span></span><span class="per">/ month</span></div>
+        <p class="price-note"><span data-cur>USD</span> · quarterly commitment · limited spots</p>
+        <hr />
+        <ul>
+          <li><span class="tick">✦</span> Everything in The Membership</li>
+          <li><span class="tick">✦</span> Full done-for-you content production</li>
+          <li><span class="tick">✦</span> Launch &amp; offer strategy built with you</li>
+          <li><span class="tick">✦</span> Private voice &amp; messaging direction</li>
+          <li><span class="tick">✦</span> Priority access &amp; bi-weekly check-ins</li>
+        </ul>
+        <a class="btn btn-cream btn-block" href="#apply">Book a call to discuss <span class="arr">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY ============ -->
+<section class="apply" id="apply" data-screen-label="Application">
+  <div class="wrap apply-grid">
+    <div class="apply-copy">
+      <span class="eyebrow reveal">By application</span>
+      <h2 class="reveal d1">Membership is by <span class="script">application.</span></h2>
+      <p class="lead reveal d2">Nova Co Club takes on a small number of female coaches each quarter — so the work stays personal and the results stay premium.</p>
+      <p class="quarterly reveal d3">A few seats. Each quarter.</p>
+      <div class="apply-photo reveal d2">
+        <div class="photo-frame">
+          <img src="images/apply.jpg" alt="A coach reviewing her Instagram on her phone" data-parallax="0.05" />
+        </div>
+      </div>
+    </div>
+    <form class="form-card reveal d1" id="apply-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-ig">Instagram handle</label>
+        <input id="f-ig" name="instagram" type="text" placeholder="@yourhandle" />
+      </div>
+      <div class="field">
+        <label for="f-about">Tell us about your coaching business</label>
+        <textarea id="f-about" name="about" placeholder="What you do, who you help, where you're headed…"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-stuck">What feels stuck about your content right now?</label>
+        <textarea id="f-stuck" name="stuck" placeholder="Be honest — this helps us help you."></textarea>
+      </div>
+      <button class="btn btn-burgundy btn-block" type="submit">Submit application <span class="arr">→</span></button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="f-mark">Nova Co <span class="script">club</span></div>
+    <p class="f-tag">The content club for female coaches.</p>
+    <nav class="f-links">
+      <a href="https://instagram.com/novaco.club" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:info@novaco.club">info@novaco.club</a>
+      <a href="#apply">Apply</a>
+    </nav>
+    <div class="f-meta">
+      <span>© 2026 Nova Co Club</span>
+      <span>Est. Cape Town</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== Nova Co Club — interactions ===== */
+(function () {
+  'use strict';
+
+  /* --- Sticky nav state --- */
+  var nav = document.querySelector('.nav');
+  function onScroll() {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 16);
+    var y = window.scrollY;
+    document.querySelectorAll('[data-parallax]').forEach(function (el) {
+      var speed = parseFloat(el.getAttribute('data-parallax')) || 0.12;
+      var rect = el.getBoundingClientRect();
+      var offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * -speed;
+      el.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --- Scroll reveal --- */
+  setTimeout(function () { document.documentElement.classList.add('reveal-failsafe'); }, 2400);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  /* --- Hero load-in --- */
+  window.addEventListener('load', function () {
+    document.querySelectorAll('[data-hero]').forEach(function (el, i) {
+      setTimeout(function () { el.classList.add('in'); }, 90 * i);
+    });
+  });
+  if (document.readyState === 'complete') {
+    document.querySelectorAll('[data-hero]').forEach(function (el, i) {
+      setTimeout(function () { el.classList.add('in'); }, 90 * i);
+    });
+  }
+
+  /* --- Pricing by country --- */
+  var PRICING = {
+    ZA: { flag: '🇿🇦', name: 'South Africa',  cur: 'ZAR', sym: 'R',   membership: '12,500', studio: '29,500' },
+    GB: { flag: '🇬🇧', name: 'United Kingdom', cur: 'GBP', sym: '£',   membership: '950',    studio: '2,250'  },
+    US: { flag: '🇺🇸', name: 'United States',  cur: 'USD', sym: '$',   membership: '1,200',  studio: '2,850'  },
+    AU: { flag: '🇦🇺', name: 'Australia',       cur: 'AUD', sym: 'A$',  membership: '1,850',  studio: '4,350'  },
+    CA: { flag: '🇨🇦', name: 'Canada',          cur: 'CAD', sym: 'C$',  membership: '1,650',  studio: '3,950'  }
+  };
+  var sel = document.getElementById('country-select');
+  function applyPricing(code) {
+    var p = PRICING[code];
+    if (!p) return;
+    document.querySelectorAll('[data-price="membership"]').forEach(function (el) {
+      el.querySelector('.sym').textContent = p.sym;
+      el.querySelector('.num').textContent = p.membership;
+    });
+    document.querySelectorAll('[data-price="studio"]').forEach(function (el) {
+      el.querySelector('.sym').textContent = p.sym;
+      el.querySelector('.num').textContent = p.studio;
+    });
+    document.querySelectorAll('[data-cur]').forEach(function (el) { el.textContent = p.cur; });
+  }
+  if (sel) {
+    sel.addEventListener('change', function () { applyPricing(this.value); });
+    applyPricing(sel.value);
+  }
+
+  /* --- Application form -> mailto --- */
+  var form = document.getElementById('apply-form');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      var name  = (data.get('name') || '').toString().trim();
+      var email = (data.get('email') || '').toString().trim();
+      var ig    = (data.get('instagram') || '').toString().trim();
+      var about = (data.get('about') || '').toString().trim();
+      var stuck = (data.get('stuck') || '').toString().trim();
+      var msg   = form.querySelector('.form-msg');
+
+      if (!name || !email) {
+        if (msg) { msg.textContent = 'Please add your name and email so we can reach you.'; msg.className = 'form-msg'; }
+        return;
+      }
+
+      var body =
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Instagram: ' + ig + '\n\n' +
+        'About the coaching business:\n' + about + '\n\n' +
+        'What feels stuck about content right now:\n' + stuck + '\n';
+
+      var href = 'mailto:info@novaco.club'
+        + '?subject=' + encodeURIComponent('Nova Co Club — Membership application: ' + name)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = href;
+      if (msg) {
+        msg.textContent = 'Opening your email to send to info@novaco.club — just hit send. Talk soon ✦';
+        msg.className = 'form-msg ok';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
